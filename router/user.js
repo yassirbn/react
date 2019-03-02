@@ -35,7 +35,6 @@ router.get('/all',function(req,res){
 });
 
 router.post('/login',function(req,res){
-    UserModel.findOne({email: req.body.email}, function (err, userInfo) {
         if (!userInfo) {
             console.log("user not found " + req.body.email)
             res.json({status: "error", message: "Invalid email/password!!!", data: null});

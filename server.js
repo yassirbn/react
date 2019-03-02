@@ -6,12 +6,15 @@ var logger = require('morgan');
 var category = require('./router/category');
 var db=require('./models/db') ; 
 var app=express() ;
+var cors = require('cors')
 var bodyParser =require('body-parser') ;
 var VerifyToken= require('./verifyToken');
 const config =require('./config.json')
 app.set('secretKey', 'test'); // jwt secret token
 app.use(logger('dev'));
 app.use(bodyParser.json());
+
+app.use(cors());
 
 app.use("/users",user);
 app.use("/prods",VerifyToken,product);

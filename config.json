@@ -1,7 +1,7 @@
 {
   "secret": "yassir",
   "refreshTokenSecret": "benabdallah",
-  "port": 3000,
+  "port": 3001,
   "tokenLife": 900,
   "refreshTokenLife": 86400
 }

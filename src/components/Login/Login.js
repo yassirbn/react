@@ -29,6 +29,15 @@ class Login extends Component {
         console.log(this.state.email);
         console.log(this.state.password);
 
+        fetch("http://localhost:3001/users/login",{method:'POST'},{
+            email:this.state.email,
+            password:this.state.password
+        })
+            .then(response=>response.json())
+            .then(data=>{
+                console.log("data",data);
+            })
+
     }
     render() {
         return(
