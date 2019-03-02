@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Login.css';
+import axios from 'axios';
 
 
 
@@ -29,14 +30,13 @@ class Login extends Component {
         console.log(this.state.email);
         console.log(this.state.password);
 
-        fetch("http://localhost:3001/users/login",{method:'POST'},{
-            email:this.state.email,
-            password:this.state.password
+        axios.post("http://localhost:3001/users/login", {
+            email: this.state.email,
+            password: this.state.password
+        }).then(data=> {
+            console.log("data", data);
         })
-            .then(response=>response.json())
-            .then(data=>{
-                console.log("data",data);
-            })
+
 
     }
     render() {
