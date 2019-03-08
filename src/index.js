@@ -9,13 +9,14 @@ import Errors from './components/Errors/Errors';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router ,Route ,Link,Switch } from 'react-router-dom';
 import Home from "./components/Home/Home";
-
+import Products from "./components/Products/Products";
 
 ReactDOM.render(<Router>
     <Switch>
         <Route exact path="/" component={Login}/>
         <Route exact path="/register" component={Register}/>
         <Route exact path="/home" component={Home}/>
+        <Route exact path="/prods" component={Products}/>
         <Route  path="*" component={Errors}/>
 
     </Switch>

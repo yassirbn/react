@@ -17,7 +17,7 @@ var SchemaModel=new schema({
     },
     products:[{
         type:mongoose.Schema.Types.ObjectId,
-        ref:"Products"
+        ref:"Products.js"
     }]
 }); 
 

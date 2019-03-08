@@ -26,9 +26,7 @@ router.get('/all',function(req,res){
             })
         }else{
             res.send({
-                data:{},
-                state:"yes",
-                msg:result
+                data:result
             })
         }
     })

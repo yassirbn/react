@@ -1,29 +1,29 @@
 import React, { Component } from 'react';
-import './Home.css';
+import './Products.css';
 import axios from "axios";
 
 
-class Home extends Component {
+class Products extends Component {
     constructor(prop){
         super(prop);
         this.state = {
 
-            users: []
+            prods: []
         }
 
     }
 
     componentDidMount() {
         console.log('Did Mount');
-
-        axios.get("http://localhost:3001/users/all").then(
+        const token= "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjN2E0MmU3MTBmYmZmMWExNDZjYzQzOSIsImlhdCI6MTU1MjAwMDk2NiwiZXhwIjoxNTUyMDA0NTY2fQ.Kn7-pbTQlCZdzuUdnAT1MDa-C2mdCUkFuc8a964hUlM";
+        axios.get("http://localhost:3001/prods/all",{"headers":{"x-access-token":token}}).then(
             item => {
 
                 console.log(item["data"].data)
                 console.log(JSON.parse(JSON.stringify(item["data"])).data)
 
 
-                this.setState({users: item["data"].data})
+                this.setState({prods: item["data"].data})
             }
         )
     }
@@ -47,22 +47,20 @@ class Home extends Component {
                 <table id="customers">
                     <tbody>
                     <tr>
-                        <th>FirstName</th>
-                        <th>LastName</th>
-                        <th>Email</th>
+                        <th>name</th>
+                        <th>price</th>
                         <th>Edit</th>
                         <th>Delete</th>
                     </tr>
 
                     {
 
-                        this.state.users.map(item =>
+                        this.state.prods.map(item =>
 
 
                             <tr>
-                                <td>{item.firstName}</td>
-                                <td>{item.lastName}</td>
-                                <td>{item.email}</td>
+                                <td>{item.name}</td>
+                                <td>{item.price}</td>
                                 <td><i className="fa fa-edit"></i></td>
                                 <td><i className="fas fa-trash-alt"></i></td>
                             </tr>
@@ -80,4 +78,4 @@ class Home extends Component {
 
 }
 
-export default Home;
+export default Products;
